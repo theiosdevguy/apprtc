@@ -252,15 +252,15 @@ def get_room_parameters(request, room_id, client_id, is_initiator):
   # TODO(tkchin): We want to provide a ICE request url on the initial get,
   # but we don't provide client_id until a join. For now just generate
   # a random id, but we should make this better.
-  username = client_id if client_id is not None else generate_random(9)
-  if len(ice_server_base_url) > 0:
-    ice_server_url = constants.ICE_SERVER_URL_TEMPLATE % \
-        (ice_server_base_url, constants.ICE_SERVER_API_KEY)
-  else:
-    ice_server_base_url = ''
+  #username = client_id if client_id is not None else generate_random(9)
+  #if len(ice_server_base_url) > 0:
+  #  ice_server_url = constants.ICE_SERVER_URL_TEMPLATE % \
+  #      (ice_server_base_url, constants.ICE_SERVER_API_KEY)
+  #else:
+  #  ice_server_base_url = ''
 
   turn_url = constants.TURN_URL_TEMPLATE % \
-      (constants.TURN_BASE_URL)
+      (constants.TURN_BASE_URL, username, password)
 
   pc_config = make_pc_config(ice_transports)
   pc_constraints = make_pc_constraints(dtls, dscp, ipv6)
