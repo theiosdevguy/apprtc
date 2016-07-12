@@ -1,4 +1,4 @@
-application: apprtc
+application: cleansweep-4c27f
 version: 9
 runtime: python27
 threadsafe: true

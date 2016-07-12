@@ -1,12 +1,12 @@
 {
-  "name": "apprtc",
+  "name": "cleansweep-4c27f",
   "version": "1.0.0",
   "description": "Project checking for AppRTC repo",
   "license": "BSD-3-Clause",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/webrtc/apprtc.git"
+    "url": "https://github.com/theiosdevguy/apprtc"
   },
   "scripts": {
     "test": "grunt --verbose"
