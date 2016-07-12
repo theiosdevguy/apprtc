@@ -12,7 +12,7 @@ MEMCACHE_RETRY_LIMIT = 100
 LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # TODO: Remove once clients support ICE_SERVER.
-TURN_BASE_URL = 'http://cleansweep.kimmccann.net:3478'
+TURN_BASE_URL = 'http://192.158.29.39:3478?transport=tcp'
 TURN_URL_TEMPLATE = '%s?username=%s&password=%s'
 CEOD_KEY = '4080218913'
 USERNAME = 'sweepdevel@gmail.com'
