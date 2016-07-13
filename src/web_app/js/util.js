@@ -105,8 +105,41 @@ function requestIceServers(iceServerRequestUrl, iceTransports) {
       trace('Retrieved ICE server information.');
       resolve(iceServerRequestResponse.iceServers);
     }).catch(function(error) {
-      reject(Error('ICE server request error: ' + error.message));
-      return;
+
+      var resJSON = {
+        "lifetimeDuration": "86400.000s",
+        "iceServers": [
+          {
+            "urls": [
+              "turn:74.125.200.127:19305?transport=udp",
+              "turn:[2404:6800:4003:C00::7F]:19305?transport=udp",
+              "turn:74.125.200.127:443?transport=tcp",
+              "turn:[2404:6800:4003:C00::7F]:443?transport=tcp"
+            ],
+            "username": "CKWonbwFEgYgb0v7dNYYzc/s6OMT",
+            "credential": "TsK27Nc8g86xWrlsyIpjQr6/HEk="
+          },
+          {
+            "urls": [
+              "stun:stun.l.google.com:19302"
+            ]
+          }
+        ]
+      }
+
+      var iceServerRequestResponse = parseJSON(JSON.stringify(resJSON));
+      if (!iceServerRequestResponse) {
+        reject(Error('Error parsing response JSON: ' + response));
+        return;
+      }
+      if (iceTransports !== '') {
+        filterIceServersUrls(iceServerRequestResponse, iceTransports);
+      }
+      trace('Retrieved ICE server information.');
+      resolve(iceServerRequestResponse.iceServers);
+
+      // reject(Error('ICE server request error: ' + error.message));
+      // return;
     });
   });
 }
