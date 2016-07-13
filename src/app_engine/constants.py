@@ -13,7 +13,7 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # TODO: Remove once clients support ICE_SERVER.
 TURN_BASE_URL = 'numb.viagenie.ca'
-TURN_URL_TEMPLATE = 'turn:%s?username=%s&credential=%s'
+TURN_URL_TEMPLATE = 'turn:%s?username=%s&password=%s'
 USERNAME = 'logik@darkdance.org'
 CREDENTIAL = 'badbunny'
 CEOD_KEY = '4080218913'
