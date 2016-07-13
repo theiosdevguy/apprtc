@@ -129,7 +129,7 @@ function requestIceServers(iceServerRequestUrl, iceTransports) {
 
       var iceServerRequestResponse = parseJSON(resJSON);
       if (!iceServerRequestResponse) {
-        reject(Error('Error parsing response JSON: ' + resJSON));
+        reject(Error('Error parsing response JSON: ' + resJSON + error));
         return;
       }
       if (iceTransports !== '') {
