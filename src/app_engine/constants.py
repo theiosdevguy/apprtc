@@ -12,10 +12,8 @@ MEMCACHE_RETRY_LIMIT = 100
 LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # TODO: Remove once clients support ICE_SERVER.
-TURN_BASE_URL = 'numb.viagenie.ca'
-TURN_URL_TEMPLATE = 'turn:%s?username=%s&password=%s'
-USERNAME = 'logik@darkdance.org'
-CREDENTIAL = 'badbunny'
+TURN_BASE_URL = 'https://computeengineondemand.appspot.com'
+TURN_URL_TEMPLATE = '%s/turn?username=%s&key=%s'
 CEOD_KEY = '4080218913'
 
 ICE_SERVER_BASE_URL = 'https://networktraversal.googleapis.com'
