@@ -111,13 +111,10 @@ function requestIceServers(iceServerRequestUrl, iceTransports) {
         iceServers: [
           {
             urls: [
-              'turn:74.125.200.127:19305?transport=udp',
-              'turn:[2404:6800:4003:C00::7F]:19305?transport=udp',
-              'turn:74.125.200.127:443?transport=tcp',
-              'turn:[2404:6800:4003:C00::7F]:443?transport=tcp'
-            ],
-            username: 'CKWonbwFEgYgb0v7dNYYzc/s6OMT',
-            credential: 'TsK27Nc8g86xWrlsyIpjQr6/HEk='
+              'turn:cleansweep.kimmccann.net'
+        ],
+            username: 'cleansweep',
+            credential: 'AbletonGuru'
           },
           {
             urls: [
