@@ -118,6 +118,7 @@ function requestIceServers(iceServerRequestUrl, iceTransports) {
           },
           {
             urls: [
+              'stun:stun.l.google.com:19302',
               'stun:cleansweep.kimmccann.net:3478'
             ]
           }
