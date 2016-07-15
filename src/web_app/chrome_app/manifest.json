@@ -1,6 +1,6 @@
 {
-  "name": "AppRTC",
-  "description": "AppRTC video chat application",
+  "name": "CleanSweepRTC",
+  "description": "CleanSweep Media web app",
   "version": "0.1",
   "manifest_version": 2,
   "app": {
