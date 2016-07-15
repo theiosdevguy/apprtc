@@ -286,14 +286,13 @@ Call.prototype.toggleAudioMute = function() {
 // Send the Text Message
 Call.prototype.sendMessage = function(text) {
   var msg = {
-    type : 'custom',
-    tag : 'Text',
-    data : text
+    type: 'custom',
+    tag: 'Text',
+    data: text
   };
 
   this.channel_.send(JSON.stringify(msg));
 };
-
 
 // Connects client to the room. This happens by simultaneously requesting
 // media, requesting turn, and join the room. Once all three of those

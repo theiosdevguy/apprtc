@@ -79,7 +79,8 @@ var AppController = function(loadingParams) {
   this.rejoinButton_.addEventListener('click',
       this.onRejoinClick_.bind(this), false);
 
-  this.sendMessageButton_.addEventListener('click', this.sendMessage_.bind(this), false);
+  this.sendMessageButton_.addEventListener('click',
+                  this.sendMessage_.bind(this), false);
 
   this.muteAudioIconSet_ =
       new AppController.IconSet_(UI_CONSTANTS.muteAudioSvg);
