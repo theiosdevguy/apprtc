@@ -284,11 +284,14 @@ Call.prototype.toggleAudioMute = function() {
 };
 
 // Send the Text Message
-Call.prototype.sendMessage = function(text) {
+Call.prototype.sendMessage = function(title, text) {
   var msg = {
     type: 'custom',
     tag: 'Text',
-    data: text
+    data: {
+      title: title,
+      description: text
+    }
   };
 
   this.channel_.send(JSON.stringify(msg));
