@@ -48,6 +48,8 @@ var UI_CONSTANTS = {
   sharingDiv: '#sharing-div',
   statusDiv: '#status-div',
   videosDiv: '#videos',
+  sendMessageButton: '#send-message-button',
+  messageInput: '#message-input'
 };
 
 // The controller that connects the Call with the UI.
@@ -69,11 +71,15 @@ var AppController = function(loadingParams) {
   this.newRoomLink_ = $(UI_CONSTANTS.newRoomLink);
   this.rejoinButton_ = $(UI_CONSTANTS.rejoinButton);
   this.newRoomButton_ = $(UI_CONSTANTS.newRoomButton);
+  this.messageInput_ = $(UI_CONSTANTS.messageInput);
+  this.sendMessageButton_ = $(UI_CONSTANTS.sendMessageButton);
 
   this.newRoomButton_.addEventListener('click',
       this.onNewRoomClick_.bind(this), false);
   this.rejoinButton_.addEventListener('click',
       this.onRejoinClick_.bind(this), false);
+
+  this.sendMessageButton_.addEventListener('click', this.sendMessage_.bind(this), false);
 
   this.muteAudioIconSet_ =
       new AppController.IconSet_(UI_CONSTANTS.muteAudioSvg);
@@ -464,6 +470,10 @@ AppController.prototype.displayStatus_ = function(status) {
 AppController.prototype.displayError_ = function(error) {
   trace(error);
   this.infoBox_.pushErrorMessage(error);
+};
+
+AppController.prototype.sendMessage_ = function() {
+  this.call_.sendMessage(this.messageInput_.value);
 };
 
 AppController.prototype.toggleAudioMute_ = function() {

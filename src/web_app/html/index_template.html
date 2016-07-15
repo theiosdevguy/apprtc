@@ -28,6 +28,10 @@
   <link rel="canonical" href="{{ room_link }}">
 {% endif %}
   <link rel="stylesheet" href="/css/main.css">
+  <!-- callstats dependencies: http://www.callstats.io/api/#integrating-with-your-sdk -->
+  <script src="/callstats/callstats.min.js"></script>
+  <script src="/callstats/sha.js"></script>
+  <script src="/callstats/socket.io.js"></script>
 
 </head>
 
@@ -65,6 +69,11 @@
     <div>Ready to join<span id="confirm-join-room-span"></span>?</div>
     <button id="confirm-join-button">JOIN</button>
   </div>
+
+  <header style="transform: translateX(0);">
+    Message: <input type="text" name="msgText" id="message-input"><br>
+    <button id="send-message-button">SEND</button>
+  </header>
 
   <footer>
     <div id="sharing-div">
@@ -149,7 +158,8 @@
       wssUrl: '{{ wss_url }}',
       wssPostUrl: '{{ wss_post_url }}',
       bypassJoinConfirmation: {{ bypass_join_confirmation }},
-      versionInfo: {{ version_info }}
+      versionInfo: {{ version_info }},
+      callstatsParams: {{ callstats_params}}
     };
 
     var appController;
