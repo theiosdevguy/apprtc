@@ -49,7 +49,8 @@ var UI_CONSTANTS = {
   statusDiv: '#status-div',
   videosDiv: '#videos',
   sendMessageButton: '#send-message-button',
-  messageInput: '#message-input'
+  messageInput: '#message-input',
+  messageDiv: '#message-div'
 };
 
 // The controller that connects the Call with the UI.
@@ -73,6 +74,7 @@ var AppController = function(loadingParams) {
   this.newRoomButton_ = $(UI_CONSTANTS.newRoomButton);
   this.messageInput_ = $(UI_CONSTANTS.messageInput);
   this.sendMessageButton_ = $(UI_CONSTANTS.sendMessageButton);
+  this.messageDiv_ = $(UI_CONSTANTS.messageDiv);
 
   this.newRoomButton_.addEventListener('click',
       this.onNewRoomClick_.bind(this), false);
@@ -192,10 +194,12 @@ AppController.prototype.createCall_ = function() {
 AppController.prototype.showRoomSelection_ = function() {
   var roomSelectionDiv = $(UI_CONSTANTS.roomSelectionDiv);
   this.roomSelection_ = new RoomSelection(roomSelectionDiv, UI_CONSTANTS);
+  this.hide_(this.messageDiv_);
 
   this.show_(roomSelectionDiv);
   this.roomSelection_.onRoomSelected = function(roomName) {
     this.hide_(roomSelectionDiv);
+    this.show_(this.messageDiv_);
     this.createCall_();
     this.finishCallSetup_(roomName);
 
