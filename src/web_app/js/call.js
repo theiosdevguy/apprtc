@@ -286,9 +286,9 @@ Call.prototype.toggleAudioMute = function() {
 // Send the Text Message
 Call.prototype.sendMessage = function(text) {
   var msg = {
-    "type" : "custom",
-    "tag" : "Text",
-    "data" : text
+    type : 'custom',
+    tag : 'Text',
+    data : text
   };
 
   this.channel_.send(JSON.stringify(msg));
