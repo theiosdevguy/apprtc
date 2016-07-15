@@ -1,8 +1,8 @@
 application: cleansweep-4c27f
-version: 10
+version: 1.0.1
 runtime: python27
 threadsafe: true
-api_version: 1
+api_version: 1.0.1
 
 handlers:
 - url: /(.*\.html)
