@@ -30,7 +30,7 @@ var RoomSelection = function(roomSelectionDiv,
   this.roomRecentList_ = this.roomSelectionDiv_.querySelector(
       uiConstants.roomSelectionRecentList);
 
-  this.roomIdInput_.value = randomString(9);
+  this.roomIdInput_.value = 'cleansweep';//randomString(9);
   // Call onRoomIdInput_ now to validate initial state of input box.
   this.onRoomIdInput_();
 
