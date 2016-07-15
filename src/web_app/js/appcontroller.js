@@ -475,6 +475,7 @@ AppController.prototype.displayError_ = function(error) {
 
 AppController.prototype.sendMessage_ = function() {
   this.call_.sendMessage(this.messageInput_.value);
+  this.messageInput_.value = "";
 };
 
 AppController.prototype.toggleAudioMute_ = function() {
