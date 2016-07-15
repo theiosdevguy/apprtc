@@ -411,7 +411,7 @@ AppController.prototype.onNewRoomClick_ = function() {
 // i: toggle info panel.
 // q: quit (hangup)
 // Return false to screen out original Chrome shortcuts.
-AppController.prototype.onKeyPress_ = function(event) {
+AppController.prototype.onKeyPress_ = function() {
   // switch (String.fromCharCode(event.charCode)) {
   //   case ' ':
   //   case 'm':
