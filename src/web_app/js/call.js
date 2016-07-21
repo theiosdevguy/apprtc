@@ -39,6 +39,7 @@ var Call = function(params) {
   this.onremotestreamadded = null;
   this.onsignalingstatechange = null;
   this.onstatusmessage = null;
+  this.onSignalingMessageReceived = null;
 
   this.getMediaPromise_ = null;
   this.getIceServersPromise_ = null;
@@ -547,6 +548,16 @@ Call.prototype.joinRoom_ = function() {
 Call.prototype.onRecvSignalingChannelMessage_ = function(msg) {
   this.maybeCreatePcClientAsync_()
   .then(this.pcClient_.receiveSignalingMessage(msg));
+
+  var msgObject = JSON.parse(msg);
+
+  if (msgObject.type === 'custom' && msgObject.tag === 'Media') {
+    if (msgObject.data.recordStatus === 1) {
+      if (this.onSignalingMessageReceived) {
+        this.onSignalingMessageReceived('start');
+      }
+    }
+  }
 };
 
 Call.prototype.sendSignalingMessage_ = function(message) {

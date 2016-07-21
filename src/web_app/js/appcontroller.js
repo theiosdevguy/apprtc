@@ -191,6 +191,7 @@ AppController.prototype.createCall_ = function() {
   this.call_.onerror = this.displayError_.bind(this);
   this.call_.onstatusmessage = this.displayStatus_.bind(this);
   this.call_.oncallerstarted = this.displaySharingInfo_.bind(this);
+  this.call_.onSignalingMessageReceived = this.onMessageReceived_.bind(this);
 };
 
 AppController.prototype.showRoomSelection_ = function() {
@@ -348,7 +349,7 @@ AppController.prototype.transitionToActive_ = function() {
   adapter.browserShim.reattachMediaStream(this.miniVideo_, this.localVideo_);
 
   // Transition opacity from 0 to 1 for the remote and mini videos.
-  this.activate_(this.remoteVideo_);
+  // this.activate_(this.remoteVideo_);
   this.activate_(this.miniVideo_);
   // Transition opacity from 1 to 0 for the local video.
   this.deactivate_(this.localVideo_);
@@ -468,6 +469,12 @@ AppController.prototype.displaySharingInfo_ = function(roomId, roomLink) {
   this.roomLink_ = roomLink;
   this.pushCallNavigation_(roomId, roomLink);
   this.activate_(this.sharingDiv_);
+};
+
+AppController.prototype.onMessageReceived_ = function(message) {
+  if (message === 'start') {
+    this.activate_(this.remoteVideo_);
+  }
 };
 
 AppController.prototype.displayStatus_ = function(status) {
