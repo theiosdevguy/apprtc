@@ -289,17 +289,13 @@ AppController.prototype.onRemoteSdpSet_ = function(hasRemoteVideo) {
 AppController.prototype.waitForRemoteVideo_ = function() {
   // Wait for the actual video to start arriving before moving to the active
   // call state.
-  // if (this.remoteVideo_.readyState >= 2) {  // i.e. can play
-  //   trace('Remote video started; currentTime: ' +
-  //         this.remoteVideo_.currentTime);
-  //   this.transitionToActive_();
-  // } else {
-  //   this.remoteVideo_.oncanplay = this.waitForRemoteVideo_.bind(this);
-  // }
-
-  trace('Remote video started; currentTime: ' +
-      this.remoteVideo_.currentTime);
-  this.transitionToActive_();
+  if (this.remoteVideo_.readyState >= 0) {  // i.e. can play
+    trace('Remote video started; currentTime: ' +
+          this.remoteVideo_.currentTime);
+    this.transitionToActive_();
+  } else {
+    this.remoteVideo_.oncanplay = this.waitForRemoteVideo_.bind(this);
+  }
 };
 
 AppController.prototype.onRemoteStreamAdded_ = function(stream) {
