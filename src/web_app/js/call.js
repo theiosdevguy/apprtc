@@ -367,7 +367,9 @@ Call.prototype.maybeGetMedia_ = function() {
   var needStream = (this.params_.mediaConstraints.audio !== false ||
                     this.params_.mediaConstraints.video !== false);
   var mediaPromise = null;
-  if (false) {              /* IMPORTANT -- CHANGE TO TEST LATENCY REDUCTION */
+  needStream = false;    /* IMPORTANT -- CHANGE TO TEST LATENCY REDUCTION */
+
+  if (needStream) {
     var mediaConstraints = this.params_.mediaConstraints;
 
     mediaPromise = navigator.mediaDevices.getUserMedia(mediaConstraints)
