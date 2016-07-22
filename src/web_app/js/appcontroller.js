@@ -349,7 +349,7 @@ AppController.prototype.transitionToActive_ = function() {
   adapter.browserShim.reattachMediaStream(this.miniVideo_, this.localVideo_);
 
   // Transition opacity from 0 to 1 for the remote and mini videos.
-  // this.activate_(this.remoteVideo_);
+  this.activate_(this.remoteVideo_);
   this.activate_(this.miniVideo_);
   // Transition opacity from 1 to 0 for the local video.
   this.deactivate_(this.localVideo_);
@@ -473,7 +473,7 @@ AppController.prototype.displaySharingInfo_ = function(roomId, roomLink) {
 
 AppController.prototype.onMessageReceived_ = function(message) {
   if (message === 'start') {
-    this.activate_(this.remoteVideo_);
+    // this.activate_(this.remoteVideo_);
   }
 };
 
